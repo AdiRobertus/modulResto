@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBLKSN2018">
+  <DataContextMoniker Name="/DBLKSN2018DataContext" />
+  <nestedChildShapes>
+    <classShape Id="2ca8dc43-716d-460c-8644-56cc4f60cec7" absoluteBounds="0.75, 5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DBLKSN2018DataContext/MsEmployee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2efaad56-977e-4a51-97f1-c14f1e76e8c7" absoluteBounds="0.765, 5.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf613ae8-df88-4ff7-a3bb-f985dde49772" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DBLKSN2018DataContext/OrderHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73dddd3a-2d3d-4268-96f9-a441a66fe699" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e24ab763-3a0b-4a69-a78f-4f048224b798" absoluteBounds="0.75, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DBLKSN2018DataContext/MsMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49289399-6ad7-4ef7-b1e7-cb7b341c907a" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf045e5b-4d12-4c26-a64e-e9dbd6dfacb4" absoluteBounds="3.5, 5.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DBLKSN2018DataContext/MsMenu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8aa6d883-0f8b-4b55-b7f8-dc1751261ede" absoluteBounds="3.515, 5.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d33c3fd1-d34e-4d6d-aee4-26445862b167" absoluteBounds="6.25, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DBLKSN2018DataContext/orderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f499a3b-a1a0-4981-8fee-dbf714871170" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5); (3.125 : 4.625); (3.125 : 1.95274983723958); (3.5 : 1.95274983723958)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLKSN2018DataContext/MsEmployee/MsEmployee_OrderHeader" />
+      <nodes>
+        <classShapeMoniker Id="2ca8dc43-716d-460c-8644-56cc4f60cec7" />
+        <classShapeMoniker Id="bf613ae8-df88-4ff7-a3bb-f985dde49772" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.48682332356771); (3.04166666666667 : 2.48682332356771 : JumpStart); (3.20833333333333 : 2.48682332356771 : JumpEnd); (3.5 : 2.48682332356771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLKSN2018DataContext/MsMember/MsMember_OrderHeader" />
+      <nodes>
+        <classShapeMoniker Id="e24ab763-3a0b-4a69-a78f-4f048224b798" />
+        <classShapeMoniker Id="bf613ae8-df88-4ff7-a3bb-f985dde49772" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.01044840494792); (7.25 : 6.01044840494792); (7.25 : 2.89589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLKSN2018DataContext/MsMenu/MsMenu_orderDetail" />
+      <nodes>
+        <classShapeMoniker Id="bf045e5b-4d12-4c26-a64e-e9dbd6dfacb4" />
+        <classShapeMoniker Id="d33c3fd1-d34e-4d6d-aee4-26445862b167" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.01044840494792); (6.25 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLKSN2018DataContext/OrderHeader/OrderHeader_orderDetail" />
+      <nodes>
+        <classShapeMoniker Id="bf613ae8-df88-4ff7-a3bb-f985dde49772" />
+        <classShapeMoniker Id="d33c3fd1-d34e-4d6d-aee4-26445862b167" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

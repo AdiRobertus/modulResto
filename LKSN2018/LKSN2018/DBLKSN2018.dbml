@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LKSN2018" Class="DBLKSN2018DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=LKSN2018;Integrated Security=True" SettingsObjectName="LKSN2018.Properties.Settings" SettingsPropertyName="LKSN2018ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MsEmployee" Member="MsEmployees">
+    <Type Name="MsEmployee">
+      <Column Name="Id" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="Char(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Handphone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MsEmployee_OrderHeader" Member="OrderHeaders" ThisKey="Id" OtherKey="Employeeid" Type="OrderHeader" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderHeader" Member="OrderHeaders">
+    <Type Name="OrderHeader">
+      <Column Name="Id" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Employeeid" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="Memberid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CardNumber" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="OrderHeader_orderDetail" Member="orderDetails" ThisKey="Id" OtherKey="Orderid" Type="orderDetail" />
+      <Association Name="MsEmployee_OrderHeader" Member="MsEmployee" ThisKey="Employeeid" OtherKey="Id" Type="MsEmployee" IsForeignKey="true" />
+      <Association Name="MsMember_OrderHeader" Member="MsMember" ThisKey="Memberid" OtherKey="Id" Type="MsMember" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MsMember" Member="MsMembers">
+    <Type Name="MsMember">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Handphone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="JoinDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="MsMember_OrderHeader" Member="OrderHeaders" ThisKey="Id" OtherKey="Memberid" Type="OrderHeader" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MsMenu" Member="MsMenus">
+    <Type Name="MsMenu">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Carbo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Protein" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MsMenu_orderDetail" Member="orderDetails" ThisKey="id" OtherKey="Menuid" Type="orderDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.orderDetail" Member="orderDetails">
+    <Type Name="orderDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Orderid" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="Menuid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="MsMenu_orderDetail" Member="MsMenu" ThisKey="Menuid" OtherKey="id" Type="MsMenu" IsForeignKey="true" />
+      <Association Name="OrderHeader_orderDetail" Member="OrderHeader" ThisKey="Orderid" OtherKey="Id" Type="OrderHeader" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
